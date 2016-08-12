@@ -1,0 +1,90 @@
+<html>
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
+  <script src="../../webcomponentsjs/webcomponents-lite.js"></script>
+  <script src="../../web-component-tester/browser.js"></script>
+  <link rel="import" href="../button-action.html">
+</head>
+
+<body>
+  <test-fixture id="button-action-fixture">
+    <template>
+      <button-action></button-action>
+    </template>
+  </test-fixture>
+
+  <script>
+    suite('button-action tests without properties', function() {
+      var component;
+
+      setup(function(done) {
+        component = fixture('button-action-fixture');
+        flush(function() {
+          done();
+        });
+      });
+
+      test('properties are set to default values', function() {
+        expect(component.text).to.equal('');
+        expect(component.clickProperty).to.equal('onClick');
+        expect(component.clickListener).to.be.an('Object');
+        expect(component.clickListener.onClick).to.be.a('Function');
+      });
+
+      test('does show button', function() {
+        expect(component.$$('paper-button')).to.exist;
+      });
+    });
+
+    suite('button-action tests', function() {
+      var component;
+
+      setup(function(done) {
+        component = fixture('button-action-fixture');
+        component.text = 'myText';
+        component.clickProperty = 'myProperty';
+        component.clickListener = {
+          myProperty: function() {}
+        };
+        flush(function() {
+          done();
+        });
+      });
+
+      test('properties are set to correct values', function() {
+        expect(component.text).to.equal('myText');
+        expect(component.clickProperty).to.equal('myProperty');
+        expect(component.clickListener).to.be.an('Object');
+        expect(component.clickListener.myProperty).to.be.a('Function');
+      });
+
+      test('does show button', function() {
+        expect(component.$$('paper-button')).to.exist;
+      });
+
+      test('onClick does call clickListener[clickProperty]', function(done) {
+        component.clickListener = {
+          myProperty: function() {
+            done();
+          }
+        };
+        flush(function() {
+          component.onClick();
+        });
+      });
+
+      test('clicking the button does call clickListener[clickProperty]', function(done) {
+        component.clickListener = {
+          myProperty: function() {
+            done();
+          }
+        };
+        flush(function() {
+          component.$$('paper-button').click();
+        });
+      });
+    });
+  </script>
+</body>
+</html>
