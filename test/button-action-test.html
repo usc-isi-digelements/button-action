@@ -46,14 +46,14 @@
         expect(button.disabled).to.be.true;
       });
 
-      test('onClick does call clickListener.onClick', function(done) {
+      test('_onClick does call clickListener.onClick', function(done) {
         component.clickListener = {
           onClick: function() {
             done();
           }
         };
         flush(function() {
-          component.onClick();
+          component._onClick();
         });
       });
 
@@ -105,14 +105,14 @@
         expect(button.disabled).to.be.true;
       });
 
-      test('onClick does call clickListener[clickProperty]', function(done) {
+      test('_onClick does call clickListener[clickProperty]', function(done) {
         component.clickListener = {
           myProperty: function() {
             done();
           }
         };
         flush(function() {
-          component.onClick();
+          component._onClick();
         });
       });
 

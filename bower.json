@@ -1,10 +1,10 @@
 {
   "name": "button-action",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "authors": [
     "Next Century Corporation"
   ],
-  "description": "",
+  "description": "A polymer web component that shows a stylized button.",
   "keywords": [
     "web-component",
     "polymer"

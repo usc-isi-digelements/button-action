@@ -35,7 +35,7 @@ Example:
       }
     </style>
 
-    <paper-button raised disabled="[[disabled]]" on-tap="onClick">[[text]]</paper-button>
+    <paper-button raised disabled="[[disabled]]" on-tap="_onClick">[[text]]</paper-button>
   </template>
 
   <script>
@@ -87,7 +87,7 @@ Example:
       /**
        * Calls clickListener[clickProperty] whenever the button is clicked or tapped.
        */
-      onClick: function() {
+      _onClick: function() {
         this.clickListener[this.clickProperty]();
       }
     });
