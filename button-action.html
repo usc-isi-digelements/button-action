@@ -35,7 +35,7 @@ Example:
       }
     </style>
 
-    <paper-button raised on-tap="onClick">[[text]]</paper-button>
+    <paper-button raised disabled="[[disabled]]" on-tap="onClick">[[text]]</paper-button>
   </template>
 
   <script>
@@ -52,6 +52,14 @@ Example:
         text: {
           type: String,
           value: ''
+        },
+
+        /**
+         * Whether the button is disabled.
+         */
+        disabled: {
+          type: Boolean,
+          value: false
         },
 
         /**

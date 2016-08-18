@@ -27,13 +27,45 @@
 
       test('properties are set to default values', function() {
         expect(component.text).to.equal('');
+        expect(component.disabled).to.be.false;
         expect(component.clickProperty).to.equal('onClick');
         expect(component.clickListener).to.be.an('Object');
         expect(component.clickListener.onClick).to.be.a('Function');
       });
 
       test('does show button', function() {
-        expect(component.$$('paper-button')).to.exist;
+        var button = component.$$('paper-button');
+        expect(button).to.exist;
+        expect(button.disabled).to.be.false;
+      });
+
+      test('disabled button', function() {
+        component.disabled = true;
+        var button = component.$$('paper-button');
+        expect(button).to.exist;
+        expect(button.disabled).to.be.true;
+      });
+
+      test('onClick does call clickListener.onClick', function(done) {
+        component.clickListener = {
+          onClick: function() {
+            done();
+          }
+        };
+        flush(function() {
+          component.onClick();
+        });
+      });
+
+      test('clicking the button does call clickListener.onClick', function(done) {
+        component.clickListener = {
+          onClick: function() {
+            done();
+          }
+        };
+        flush(function() {
+          component.$$('paper-button').click();
+        });
       });
     });
 
@@ -54,13 +86,23 @@
 
       test('properties are set to correct values', function() {
         expect(component.text).to.equal('myText');
+        expect(component.disabled).to.be.false;
         expect(component.clickProperty).to.equal('myProperty');
         expect(component.clickListener).to.be.an('Object');
         expect(component.clickListener.myProperty).to.be.a('Function');
       });
 
       test('does show button', function() {
-        expect(component.$$('paper-button')).to.exist;
+        var button = component.$$('paper-button');
+        expect(button).to.exist;
+        expect(button.disabled).to.be.false;
+      });
+
+      test('disabled button', function() {
+        component.disabled = true;
+        var button = component.$$('paper-button');
+        expect(button).to.exist;
+        expect(button.disabled).to.be.true;
       });
 
       test('onClick does call clickListener[clickProperty]', function(done) {
