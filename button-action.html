@@ -3,14 +3,14 @@
 <link rel="import" href="../paper-styles/paper-styles-classes.html">
 
 <!--
-A polymer web component that shows a stylized button.
+A Polymer Element showing a stylized button that executes an action when clicked or tapped.
 
 Example:
 
-        <button-action
-          text="Click Me"
-          click-listener="[[listener]]">
-        </button-action>
+    <button-action
+        text="Click Me"
+        click-listener="[[listener]]">
+    </button-action>
 
 @demo demo/index.html
 -->
@@ -48,6 +48,9 @@ Example:
       properties: {
         /**
          * The button text.
+         *
+         * @type {String}
+         * @default ''
          */
         text: {
           type: String,
@@ -56,6 +59,9 @@ Example:
 
         /**
          * Whether the button is disabled.
+         *
+         * @type {Boolean}
+         * @default false
          */
         disabled: {
           type: Boolean,
@@ -65,6 +71,9 @@ Example:
         /**
          * An object with a function property called if the button is clicked or tapped.
          * The name of the property in the object is defined in clickProperty.
+         *
+         * @type {Object}
+         * @default {{onClick: Function}}
          */
         clickListener: {
           type: Object,
@@ -77,6 +86,9 @@ Example:
 
         /**
          * The name of the function property in clickListener.
+         *
+         * @type {String}
+         * @default 'onClick'
          */
         clickProperty: {
           type: String,
@@ -86,6 +98,8 @@ Example:
 
       /**
        * Calls clickListener[clickProperty] whenever the button is clicked or tapped.
+       *
+       * @private
        */
       _onClick: function() {
         this.clickListener[this.clickProperty]();

@@ -1,13 +1,13 @@
 # button-action
 
-A polymer web component that shows a stylized button.
+A Polymer Element showing a stylized button that executes an action when clicked or tapped.
 
-Example:
+### Example
 ```html
-        <button-action
-          text="Click Me"
-          click-listener="[[listener]]">
-        </button-action>
+    <button-action
+        text="Click Me"
+        click-listener="[[listener]]">
+    </button-action>
 ```
 
 ### Dependencies
