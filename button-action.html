@@ -6,11 +6,12 @@
 A Polymer Element showing a stylized button that executes an action when clicked or tapped.
 
 ### Example
-
-    <button-action
-        text="Click Me"
-        click-listener="[[listener]]">
-    </button-action>
+```html
+<button-action
+  text="Click Me"
+  click-listener="[[listener]]">
+</button-action>
+```
 
 @demo demo/index.html
 -->
@@ -47,6 +48,8 @@ A Polymer Element showing a stylized button that executes an action when clicked
 
       properties: {
         /**
+         * (Optional)
+         *
          * The button text.
          *
          * @type {String}
@@ -58,6 +61,8 @@ A Polymer Element showing a stylized button that executes an action when clicked
         },
 
         /**
+         * (Optional)
+         *
          * Whether the button is disabled.
          *
          * @type {Boolean}
@@ -69,6 +74,8 @@ A Polymer Element showing a stylized button that executes an action when clicked
         },
 
         /**
+         * (Required)
+         *
          * An object with a function property called if the button is clicked or tapped.
          * The name of the property in the object is defined in clickProperty.
          *
@@ -85,6 +92,8 @@ A Polymer Element showing a stylized button that executes an action when clicked
         },
 
         /**
+         * (Optional)
+         *
          * The name of the function property in clickListener.
          *
          * @type {String}
@@ -99,6 +108,7 @@ A Polymer Element showing a stylized button that executes an action when clicked
       /**
        * Calls clickListener[clickProperty] whenever the button is clicked or tapped.
        *
+       * @event tap
        * @private
        */
       _onClick: function() {
