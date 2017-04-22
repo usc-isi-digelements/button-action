@@ -24,12 +24,14 @@ limitations under the License.
 
 <body unresolved>
   <template is="dom-bind" id="demo">
-    <p>Text: Click Me</p>
+    <p>Icon: star</p>
+    <p>Text: click me</p>
     <p>Click Property: click</p>
     <p>Click Listener: { click: function() { console.log('Clicked!'); } }</p>
 
     <button-action
-      text="Click Me"
+      icon="star"
+      text="click me"
       click-property="click"
       click-listener="[[clickListener]]">
     </button-action>

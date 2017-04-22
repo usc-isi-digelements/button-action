@@ -36,12 +36,11 @@ limitations under the License.
 
       setup(function(done) {
         element = fixture('button-action-fixture');
-        flush(function() {
-          done();
-        });
+        flush(done);
       });
 
       test('properties are set to default values', function() {
+        expect(element.icon).to.equal('');
         expect(element.text).to.equal('');
         expect(element.disabled).to.be.false;
         expect(element.clickProperty).to.equal('onClick');
@@ -53,6 +52,11 @@ limitations under the License.
         var button = element.$$('paper-button');
         expect(button).to.exist;
         expect(button.disabled).to.be.false;
+      });
+
+      test('does not show icon', function() {
+        var icon = element.$$('iron-icon');
+        expect(icon).to.not.exist;
       });
 
       test('disabled button', function() {
@@ -90,17 +94,17 @@ limitations under the License.
 
       setup(function(done) {
         element = fixture('button-action-fixture');
+        element.icon = 'polymer';
         element.text = 'myText';
         element.clickProperty = 'myProperty';
         element.clickListener = {
           myProperty: function() {}
         };
-        flush(function() {
-          done();
-        });
+        flush(done);
       });
 
       test('properties are set to correct values', function() {
+        expect(element.icon).to.equal('polymer');
         expect(element.text).to.equal('myText');
         expect(element.disabled).to.be.false;
         expect(element.clickProperty).to.equal('myProperty');
@@ -112,6 +116,12 @@ limitations under the License.
         var button = element.$$('paper-button');
         expect(button).to.exist;
         expect(button.disabled).to.be.false;
+      });
+
+      test('does show icon', function() {
+        var icon = element.$$('iron-icon');
+        expect(icon).to.exist;
+        expect(icon.icon).to.equal('polymer');
       });
 
       test('disabled button', function() {
