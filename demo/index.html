@@ -18,24 +18,27 @@ limitations under the License.
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, minimum-scale=1.0, initial-scale=1.0, user-scalable=yes">
-  <script src="../../webcomponentsjs/webcomponents-lite.min.js"></script>
+  <script src="../../webcomponentsjs/webcomponents-loader.js"></script>
   <link rel="import" href="../button-action.html">
 </head>
 
 <body unresolved>
-  <template is="dom-bind" id="demo">
-    <p>Icon: star</p>
-    <p>Text: click me</p>
-    <p>Click Property: click</p>
-    <p>Click Listener: { click: function() { console.log('Clicked!'); } }</p>
+  <dom-bind id="demo">
+    <template is="dom-bind">
+      <p>Icon: account-circle</p>
+      <p>Text: click me</p>
+      <p>Click Property: click</p>
+      <p>Click Listener: { click: function() { console.log('Clicked!'); } }</p>
 
-    <button-action
-      icon="star"
-      text="click me"
-      click-property="click"
-      click-listener="[[clickListener]]">
-    </button-action>
-  </template>
+      <button-action
+        icon="account-circle"
+        text="click me"
+        click-property="click"
+        click-listener="[[clickListener]]">
+      </button-action>
+    </template>
+  </dom-bind>
+
   <script>
     (function(document) {
       var demo = document.querySelector('#demo');
