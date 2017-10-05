@@ -31,6 +31,14 @@ A Polymer Element showing a stylized button that executes an action when clicked
 </button-action>
 ```
 
+### Styling
+
+`<button-action>` provides the following custom properties and mixins for styling:
+
+Custom property                    | Description                         | Default
+-----------------------------------|-------------------------------------|--------
+`--button-action-background-color` | The background color of the button. | none
+
 @demo demo/index.html
 -->
 
@@ -42,6 +50,7 @@ A Polymer Element showing a stylized button that executes an action when clicked
       }
 
       paper-button {
+        background-color: var(--button-action-background-color);
         font-size: 16px;
         line-height: 20px;
         margin: 0;

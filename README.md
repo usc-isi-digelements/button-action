@@ -10,6 +10,14 @@ A Polymer Element showing a stylized button that executes an action when clicked
 </button-action>
 ```
 
+### Styling
+
+`<button-action>` provides the following custom properties and mixins for styling:
+
+Custom property                    | Description                         | Default
+-----------------------------------|-------------------------------------|--------
+`--button-action-background-color` | The background color of the button. | none
+
 ### Dependencies
 
 Dependencies are installed using [Bower](http://bower.io/):
