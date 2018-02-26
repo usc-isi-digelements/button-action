@@ -35,11 +35,15 @@ A Polymer Element showing a stylized button that executes an action when clicked
 
 `<button-action>` provides the following custom properties and mixins for styling:
 
-Custom property                    | Description                            | Default
------------------------------------|----------------------------------------|--------
-`--button-action-background-color` | The background color of the button.    | none
-`--button-action-color`            | The color of the button.               | none
-`--button-action-mixin`            | The custom style mixin for the button. | none
+Custom property                             | Description                                     | Default
+--------------------------------------------|-------------------------------------------------|--------
+`--button-action-active-background-color`   | The background color of the button if active.   | #424242 (--paper-grey-800)
+`--button-action-active-color`              | The color of the button if active.              | white
+`--button-action-background-color`          | The background color of the button.             | none
+`--button-action-color`                     | The color of the button.                        | none
+`--button-action-disabled-background-color` | The background color of the button if disabled. | #eaeaea
+`--button-action-disabled-color`            | The color of the button if disabled.            | #a8a8a8
+`--button-action-mixin`                     | The custom style mixin for the button.          | none
 
 @demo demo/index.html
 -->
@@ -67,9 +71,14 @@ Custom property                    | Description                            | De
         @apply --shadow-elevation-8dp;
       }
 
+      paper-button[active] {
+        background-color: var(--button-action-active-background-color, #424242);
+        color: var(--button-action-active-color, white);
+      }
+
       paper-button[disabled] {
-        background-color: #eaeaea;
-        color: #a8a8a8;
+        background-color: var(--button-action-disabled-background-color, #eaeaea);
+        color: var(--button-action-disabled-color, #a8a8a8);
       }
 
       iron-icon {
@@ -84,7 +93,7 @@ Custom property                    | Description                            | De
       }
     </style>
 
-    <paper-button raised disabled="[[disabled]]" on-tap="_onClick">
+    <paper-button raised active="[[active]]" disabled="[[disabled]]" on-tap="_onClick">
       <template is="dom-if" if="[[icon]]">
         <iron-icon icon="[[icon]]"></iron-icon>
       </template>
@@ -125,6 +134,19 @@ Custom property                    | Description                            | De
         text: {
           type: String,
           value: ''
+        },
+
+        /**
+         * (Optional)
+         *
+         * Whether the button is active.
+         *
+         * @type {Boolean}
+         * @default false
+         */
+        active: {
+          type: Boolean,
+          value: false
         },
 
         /**

@@ -42,6 +42,7 @@ limitations under the License.
       test('properties are set to default values', function() {
         expect(element.icon).to.equal('');
         expect(element.text).to.equal('');
+        expect(element.active).to.be.false;
         expect(element.disabled).to.be.false;
         expect(element.clickProperty).to.equal('onClick');
         expect(element.clickListener).to.be.an('Object');
@@ -51,12 +52,20 @@ limitations under the License.
       test('does show button', function() {
         var button = element.$$('paper-button');
         expect(button).to.exist;
+        expect(button.active).to.be.false;
         expect(button.disabled).to.be.false;
       });
 
       test('does not show icon', function() {
         var icon = element.$$('iron-icon');
         expect(icon).to.not.exist;
+      });
+
+      test('active button', function() {
+        element.active = true;
+        var button = element.$$('paper-button');
+        expect(button).to.exist;
+        expect(button.active).to.be.true;
       });
 
       test('disabled button', function() {
@@ -106,6 +115,7 @@ limitations under the License.
       test('properties are set to correct values', function() {
         expect(element.icon).to.equal('polymer');
         expect(element.text).to.equal('myText');
+        expect(element.active).to.be.false;
         expect(element.disabled).to.be.false;
         expect(element.clickProperty).to.equal('myProperty');
         expect(element.clickListener).to.be.an('Object');
@@ -115,6 +125,7 @@ limitations under the License.
       test('does show button', function() {
         var button = element.$$('paper-button');
         expect(button).to.exist;
+        expect(button.active).to.be.false;
         expect(button.disabled).to.be.false;
       });
 
@@ -122,6 +133,13 @@ limitations under the License.
         var icon = element.$$('iron-icon');
         expect(icon).to.exist;
         expect(icon.icon).to.equal('polymer');
+      });
+
+      test('active button', function() {
+        element.active = true;
+        var button = element.$$('paper-button');
+        expect(button).to.exist;
+        expect(button.active).to.be.true;
       });
 
       test('disabled button', function() {
