@@ -35,9 +35,11 @@ A Polymer Element showing a stylized button that executes an action when clicked
 
 `<button-action>` provides the following custom properties and mixins for styling:
 
-Custom property                    | Description                         | Default
------------------------------------|-------------------------------------|--------
-`--button-action-background-color` | The background color of the button. | none
+Custom property                    | Description                            | Default
+-----------------------------------|----------------------------------------|--------
+`--button-action-background-color` | The background color of the button.    | none
+`--button-action-color`            | The color of the button.               | none
+`--button-action-mixin`            | The custom style mixin for the button. | none
 
 @demo demo/index.html
 -->
@@ -51,21 +53,34 @@ Custom property                    | Description                         | Defau
 
       paper-button {
         background-color: var(--button-action-background-color);
+        color: var(--button-action-color);
         font-size: 16px;
         line-height: 20px;
         margin: 0;
+        min-width: unset;
         padding: 5px 10px;
         @apply --shadow-elevation-4dp;
+        @apply --button-action-mixin;
       }
 
       paper-button:hover {
         @apply --shadow-elevation-8dp;
       }
 
+      paper-button[disabled] {
+        background-color: #eaeaea;
+        color: #a8a8a8;
+      }
+
       iron-icon {
         --iron-icon-height: 20px;
         --iron-icon-width: 20px;
         padding-right: 5px;
+      }
+
+      div {
+        line-height: 18px;
+        padding-top: 2px;
       }
     </style>
 

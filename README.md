@@ -14,9 +14,11 @@ A Polymer Element showing a stylized button that executes an action when clicked
 
 `<button-action>` provides the following custom properties and mixins for styling:
 
-Custom property                    | Description                         | Default
------------------------------------|-------------------------------------|--------
-`--button-action-background-color` | The background color of the button. | none
+Custom property                    | Description                            | Default
+-----------------------------------|----------------------------------------|--------
+`--button-action-background-color` | The background color of the button.    | none
+`--button-action-color`            | The color of the button.               | none
+`--button-action-mixin`            | The custom style mixin for the button. | none
 
 ### Dependencies
 
