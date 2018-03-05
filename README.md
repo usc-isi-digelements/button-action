@@ -22,6 +22,7 @@ Custom property                             | Description                       
 `--button-action-color`                     | The color of the button.                        | none
 `--button-action-disabled-background-color` | The background color of the button if disabled. | #eaeaea
 `--button-action-disabled-color`            | The color of the button if disabled.            | #a8a8a8
+`--button-action-hover-mixin`               | The custom style mixin for the button on hover. | none
 `--button-action-mixin`                     | The custom style mixin for the button.          | none
 
 ### Dependencies
