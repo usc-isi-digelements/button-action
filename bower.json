@@ -9,7 +9,7 @@
     "polymer"
   ],
   "main": "button-action.html",
-  "homepage": "https://github.com/DigElements/button-action/",
+  "homepage": "https://github.com/usc-isi-digelements/button-action/",
   "ignore": [
     "/.*",
     "/test/"
